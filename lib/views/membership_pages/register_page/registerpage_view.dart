@@ -76,10 +76,16 @@ class RegisterPage extends StatelessWidget {
               Obx(() {
                 return ElevatedButton(
                   onPressed: () {
-                    if(membershipViewModel.registerLoading.value){
+                    if (membershipViewModel.registerLoading.value) {
                       return;
                     }
-                    membershipViewModel.register();
+                    membershipViewModel.register().then((value) {
+                      if (value) {
+                        Get.offAllNamed('/chatpage');
+                        return;
+                      }
+                      return;
+                    });
                     return;
                   },
                   style: ElevatedButton.styleFrom(

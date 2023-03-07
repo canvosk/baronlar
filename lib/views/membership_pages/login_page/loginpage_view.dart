@@ -51,11 +51,17 @@ class LoginPage extends StatelessWidget {
               ),
               Obx(() {
                 return ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (membershipViewModel.loginLoading.value) {
                       return;
                     }
-                    membershipViewModel.login();
+                    membershipViewModel.login().then((value) {
+                      if (value) {
+                        Get.offAllNamed('/chatpage');
+                        return;
+                      }
+                      return;
+                    });
                     return;
                   },
                   style: ElevatedButton.styleFrom(

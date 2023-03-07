@@ -1,4 +1,5 @@
 import 'package:baronlar/views/base_page/base_imports.dart';
+import 'package:baronlar/views/chat_page/chat_page.dart';
 import 'package:baronlar/views/membership_pages/login_page/loginpage_imports.dart';
 import 'package:baronlar/views/membership_pages/membership_imports.dart';
 import 'package:baronlar/views/membership_pages/register_page/registerpage_imports.dart';
@@ -19,6 +20,12 @@ appRoutes() => [
         name: "/register",
         page: () => const BasePage(
           page: RegisterPage(),
+        ),
+      ),
+      GetPage(
+        name: "/chatpage",
+        page: () => const BasePage(
+          page: ChatPage(),
         ),
       ),
     ];

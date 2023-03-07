@@ -1,7 +1,5 @@
 library loginpage_view;
 
-import 'dart:math';
-
 import 'package:baronlar/constants/colors.dart';
 import 'package:baronlar/constants/sizing.dart';
 import 'package:baronlar/constants/text_styles.dart';

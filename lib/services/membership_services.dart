@@ -1,3 +1,5 @@
+import 'package:baronlar/helpers/firestore_helper.dart';
+import 'package:baronlar/helpers/storage_helper.dart';
 import 'package:baronlar/models/user_model.dart';
 import 'package:baronlar/viewmodels/login_viewmodel.dart';
 import 'package:baronlar/viewmodels/register_viewmodel.dart';
@@ -9,6 +11,9 @@ import 'package:get/get.dart';
 class MembershipServices {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+  StorageHelper storageHelper = StorageHelper();
+  FirestoreHelper firestoreHelper = FirestoreHelper();
 
   login() async {
     LoginViewModel loginViewModel = Get.find();
@@ -36,13 +41,16 @@ class MembershipServices {
           password: registerViewModel.password.value);
 
       if (user.user != null) {
-        await firestore.collection('users').doc(user.user!.uid).set({
-          'name': registerViewModel.name.value,
-          'surname': registerViewModel.surname.value,
-          'username': registerViewModel.username.value,
-          'email': registerViewModel.email.value,
-          'password': registerViewModel.password.value,
-        });
+        await firestoreHelper.setValueToCollection(
+            collectionName: 'users',
+            docName: "user.user!.uid",
+            data: {
+              'name': registerViewModel.name.value,
+              'surname': registerViewModel.surname.value,
+              'username': registerViewModel.username.value,
+              'email': registerViewModel.email.value,
+              'password': registerViewModel.password.value,
+            });
 
         UserModel userModel = UserModel(
           id: user.user!.uid,
@@ -57,6 +65,27 @@ class MembershipServices {
       }
 
       return false;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
+  }
+
+  Future getCurrentUserInfo() async {
+    try {
+      String uid = storageHelper.getString(key: 'uid');
+
+      DocumentSnapshot<Map<String, dynamic>> value =
+          await firestoreHelper.getDataInCollection(
+        collectionName: 'users',
+        docName: uid,
+      );
+
+      debugPrint("value");
+
+      UserModel user = UserModel.fromMap(value.data()!);
+
+      return user;
     } catch (e) {
       debugPrint(e.toString());
       return false;
