@@ -15,6 +15,9 @@ class Messages extends Translations {
       'username':'Username',
       'password':'Password',
       'repassword':'Re-Password',
+      'contacts':'Contacts',
+      'chats':'Chats',
+      'profile':'Profile',
     },
     'tr_TR':{
       'messenger':'Mesajlaşma',
@@ -28,6 +31,9 @@ class Messages extends Translations {
       'username':'Kullanıcı Adı',
       'password':'Şifre',
       'repassword':'Şifre Tekrarı',
+      'contacts':'Kişilerim',
+      'chats':'Mesajlar',
+      'profile':'Profil',
     },
   };
 }

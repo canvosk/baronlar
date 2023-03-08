@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           title: "Chat App",
-          initialRoute: "/membership",
+          initialRoute: "/mainpage",
           getPages: appRoutes(),
           translations: Messages(),
           locale: Get.deviceLocale,

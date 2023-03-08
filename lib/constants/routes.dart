@@ -1,9 +1,10 @@
 import 'package:baronlar/views/base_page/base_imports.dart';
-import 'package:baronlar/views/chat_page/chat_page.dart';
 import 'package:baronlar/views/membership_pages/login_page/loginpage_imports.dart';
 import 'package:baronlar/views/membership_pages/membership_imports.dart';
 import 'package:baronlar/views/membership_pages/register_page/registerpage_imports.dart';
 import 'package:get/get.dart';
+
+import '../views/main_pages/mainpage_imports.dart';
 
 appRoutes() => [
       GetPage(
@@ -23,9 +24,9 @@ appRoutes() => [
         ),
       ),
       GetPage(
-        name: "/chatpage",
+        name: "/mainpage",
         page: () => const BasePage(
-          page: ChatPage(),
+          page: MainPage(),
         ),
       ),
     ];

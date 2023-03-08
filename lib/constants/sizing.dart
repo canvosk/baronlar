@@ -5,6 +5,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 EdgeInsetsGeometry all24 = EdgeInsets.all(24.w);
 
 
+//Genel Sizing
+double listTileImageW = 60.w;
+double listTileImageH = 75.h;
+double bottomBarIconSize = 28.w;
+
 //SizedBoxes
 
 double generalMarginW = 16.w;
