@@ -1,11 +1,15 @@
 library registerpage_view;
 
+import 'dart:convert';
+
+import 'package:baronlar/helpers/select_photo_helper.dart';
 import 'package:baronlar/viewmodels/membership_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/sizing.dart';
@@ -19,3 +23,4 @@ part 'widgets/register_email_textfield.dart';
 part 'widgets/register_username_textfield.dart';
 part 'widgets/register_password_textfield.dart';
 part 'widgets/register_repassword_textfield.dart';
+part 'widgets/register_profil_photo.dart';

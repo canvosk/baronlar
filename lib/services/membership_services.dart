@@ -43,9 +43,10 @@ class MembershipServices {
       if (user.user != null) {
         await firestoreHelper.setValueToCollection(
             collectionName: 'users',
-            docName: "user.user!.uid",
+            docName: user.user!.uid,
             data: {
               'name': registerViewModel.name.value,
+              'base64':registerViewModel.base64.value,
               'surname': registerViewModel.surname.value,
               'username': registerViewModel.username.value,
               'email': registerViewModel.email.value,
@@ -54,6 +55,7 @@ class MembershipServices {
 
         UserModel userModel = UserModel(
           id: user.user!.uid,
+          base64: registerViewModel.base64.value,
           name: registerViewModel.name.value,
           surname: registerViewModel.surname.value,
           username: registerViewModel.username.value,

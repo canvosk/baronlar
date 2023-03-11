@@ -28,17 +28,21 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Text(
                 'register'.tr,
                 style: heading(golbat140),
               ),
               SizedBox(
-                height: 50.h,
+                height: 10.h,
               ),
               Column(
                 children: [
+                  const ProfilPhoto(),
+                  SizedBox(
+                    height: generalMarginH,
+                  ),
                   Row(
                     children: [
                       const Expanded(
@@ -71,17 +75,17 @@ class RegisterPage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 50.h,
+                height: 25.h,
               ),
               Obx(() {
                 return ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async{
                     if (membershipViewModel.registerLoading.value) {
                       return;
                     }
                     membershipViewModel.register().then((value) {
                       if (value) {
-                        Get.offAllNamed('/chatpage');
+                        Get.offAllNamed('/mainpage');
                         return;
                       }
                       return;
@@ -115,3 +119,4 @@ class RegisterPage extends StatelessWidget {
     );
   }
 }
+
