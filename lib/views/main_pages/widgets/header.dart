@@ -24,16 +24,24 @@ class MainPageHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SvgPicture.asset('assets/icons/search.svg'),
-              SvgPicture.asset('assets/icons/plus.svg'),
+              index == 0
+                  ? SvgPicture.asset('assets/icons/plus.svg')
+                  : index == 1
+                      ? SvgPicture.asset('assets/icons/edit.svg')
+                      : SvgPicture.asset('assets/icons/logout.svg'),
             ],
           ),
-          SizedBox(
-            height: generalBiggerMarginH,
-          ),
-          Text(
-            header,
-            style: heading(golbat140),
-          ),
+          index == 2
+              ? Container()
+              : SizedBox(
+                  height: generalBiggerMarginH,
+                ),
+          index == 2
+              ? Container()
+              : Text(
+                  header,
+                  style: heading(golbat140),
+                ),
         ],
       ),
     );

@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                     }
                     membershipViewModel.login().then((value) {
                       if (value) {
-                        Get.offAllNamed('/chatpage');
+                        Get.offAllNamed('/mainpage');
                         return;
                       }
                       return;

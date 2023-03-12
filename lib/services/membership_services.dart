@@ -53,17 +53,17 @@ class MembershipServices {
               'password': registerViewModel.password.value,
             });
 
-        UserModel userModel = UserModel(
-          id: user.user!.uid,
-          base64: registerViewModel.base64.value,
-          name: registerViewModel.name.value,
-          surname: registerViewModel.surname.value,
-          username: registerViewModel.username.value,
-          email: registerViewModel.email.value,
-          password: registerViewModel.password.value,
-        );
+        // UserModel userModel = UserModel(
+        //   id: user.user!.uid,
+        //   base64: registerViewModel.base64.value,
+        //   name: registerViewModel.name.value,
+        //   surname: registerViewModel.surname.value,
+        //   username: registerViewModel.username.value,
+        //   email: registerViewModel.email.value,
+        //   password: registerViewModel.password.value,
+        // );
 
-        return userModel;
+        return user.user;
       }
 
       return false;

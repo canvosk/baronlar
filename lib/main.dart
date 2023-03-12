@@ -1,4 +1,5 @@
 import 'package:baronlar/firebase_options.dart';
+import 'package:baronlar/helpers/storage_helper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,8 +19,27 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  late String route;
+
+  @override
+  void initState() {
+    super.initState();
+    String uid = StorageHelper().getString(key: "uid");
+    if(uid == ""){
+      route = "/membership";
+      return;
+    }
+    route = "/mainpage";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +55,7 @@ class MyApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           title: "Chat App",
-          initialRoute: "/membership",
+          initialRoute: route,
           getPages: appRoutes(),
           translations: Messages(),
           locale: Get.deviceLocale,
